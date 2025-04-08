@@ -171,7 +171,6 @@ describe('POST /api/games/search', function () {
             .expect(200)
             .end((err, result) => {
                 if (err) return done(err);
-                console.log('body', result.body)
                 assert.strictEqual(result.body.length, 1);
                 done();
             });
