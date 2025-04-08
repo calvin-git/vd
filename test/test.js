@@ -66,7 +66,7 @@ describe('GET /api/games', function () {
  */
 describe('PUT /api/games/1', function () {
     let data = {
-        id : 1,
+        id: 1,
         publisherId: "999000999",
         name: "Test App Updated",
         platform: "android",
@@ -131,3 +131,49 @@ describe('GET /api/games', function () {
     });
 });
 
+
+
+/**
+ * Testing populate games endpoint
+ */
+describe('POST /api/games/populate', function () {
+    this.timeout(5000)
+    it('respond with ok', function (done) {
+        request(app)
+            .post('/api/games/populate')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, result) => {
+                if (err) return done(err);
+                assert.strictEqual(result.body.ok, true);
+                done();
+            });
+    });
+});
+
+
+
+/**
+ * Testing search games endpoint
+*/
+describe('POST /api/games/search', function () {
+    let data = {
+        name: 'miku',
+        platform: 'ios'
+    }
+    it('respond with some data', function (done) {
+        request(app)
+            .post('/api/games/search')
+            .send(data)
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, result) => {
+                if (err) return done(err);
+                console.log('body', result.body)
+                assert.strictEqual(result.body.length, 1);
+                done();
+            });
+    });
+});

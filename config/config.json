@@ -1,14 +1,32 @@
 {
   "development": {
     "dialect": "sqlite",
-    "storage": "./database.sqlite3"
+    "storage": "./database.sqlite3",
+    "games": {
+      "sources": {
+        "android": "https://interview-marketing-eng-dev.s3.eu-west-1.amazonaws.com/android.top100.json",
+        "ios": "https://interview-marketing-eng-dev.s3.eu-west-1.amazonaws.com/ios.top100.json"
+      }
+    }
   },
   "test": {
     "dialect": "sqlite",
-    "storage": "./database_test.sqlite3"
+    "storage": "./database_test.sqlite3",
+    "games": {
+      "sources": {
+        "android": "https://interview-marketing-eng-dev.s3.eu-west-1.amazonaws.com/android.top100.json",
+        "ios": "https://interview-marketing-eng-dev.s3.eu-west-1.amazonaws.com/ios.top100.json"
+      }
+    }
   },
   "production": {
     "dialect": "sqlite",
-    "storage": "./database.sqlite3"
+    "storage": "./database.sqlite3",
+    "games": {
+      "sources": {
+        "android": "https://interview-marketing-eng-dev.s3.eu-west-1.amazonaws.com/android.top100.json",
+        "ios": "https://interview-marketing-eng-dev.s3.eu-west-1.amazonaws.com/ios.top100.json"
+      }
+    }
   }
 }
